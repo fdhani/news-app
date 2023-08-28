@@ -1,12 +1,18 @@
 {
-    "compilerOptions": {
+  "compilerOptions": {
+      "baseUrl": ".",
       "outDir": "./dist/",
       "noImplicitAny": true,
       "module": "esnext",
       "target": "es5",
       "jsx": "react-jsx",
       "allowJs": true,
+      "jsxImportSource": "@emotion/react",
       "moduleResolution": "node",
+      "paths": {
+        "@/*": ["src/*"],
+        "@utils/*": ["src/utils/*"]
+      }
     },
     "exclude": ["node_modules", "test", "dist", "build"],
     "include": [".eslintrc.js", "./src/**/*", "./src/@types/*.d.ts"],
