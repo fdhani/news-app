@@ -1,24 +1,35 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ItemClickParams,
   SearchProps,
 } from "@/pages/Home/models/components/search";
-import useGetSourceList from "@/pages/Home/repository/get-source-list/useGetSourceList";
+import useGetSourceList from "@/repository/get-source-list/useGetSourceList";
 import {
   stySearchContainer,
   styFilterContainer,
   styFilterButton,
 } from "./styles";
 import Filter from "./components/Filter";
+import useFilterArticleList from "../../usecases/use-filter-article-list";
+import useTriggerError from "../../usecases/use-trigger-error";
 
 const Search = (props: SearchProps) => {
-  const { onSearchChange, searchValue, onHistoryClick } = props;
+  const { onHistoryClick } = props;
+  const [searchValue, setSearchValue] = useState("");
   const [focus, setFocus] = useState(false);
   const [sourceList, setSourceList] = useState([]);
   const { data, loading } = useGetSourceList();
+  const { setSearch, setSources } = useFilterArticleList();
+  const triggerError = useTriggerError();
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    onSearchChange(e.target.value);
+    const elValue = e.target.value;
+    setSearchValue(elValue);
+    setSearch(elValue);
+  };
+
+  const handleTriggerErrorClick = () => {
+    triggerError();
   };
 
   const handleItemClick = (params: ItemClickParams) => {
@@ -29,6 +40,16 @@ const Search = (props: SearchProps) => {
         ...newSourceList[index],
         checked: !newSourceList[index].checked,
       };
+
+      const sources: string[] = [];
+
+      newSourceList.forEach((sourceItem) => {
+        if (sourceItem.checked) {
+          sources.push(sourceItem.value);
+        }
+      });
+
+      setSources(sources);
 
       return newSourceList;
     });
@@ -51,6 +72,13 @@ const Search = (props: SearchProps) => {
 
   return (
     <div css={styFilterContainer}>
+      <button
+        css={styFilterButton}
+        type="button"
+        onClick={handleTriggerErrorClick}
+      >
+        <span className="material-symbols-outlined">error</span>
+      </button>
       <button css={styFilterButton} type="button" onClick={onHistoryClick}>
         <span className="material-symbols-outlined">history</span>
       </button>

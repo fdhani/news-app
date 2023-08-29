@@ -1,5 +1,5 @@
 import { ArticleCardInterface } from "../models/components/article-card";
-import useVisitedArticleHistory from "../repository/visited-article-history";
+import useVisitedArticleHistory from "@/repository/visited-article-history";
 
 const useClickArticleCard = () => {
   const { setItem, getItem } = useVisitedArticleHistory();

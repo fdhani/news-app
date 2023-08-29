@@ -4,6 +4,8 @@ export const styFilterContainer = css`
   position: absolute;
   top: 37px;
   left: 0;
+  height: 430px;
+  overflow: scroll;
   z-index: 3;
   background-color: white;
   padding: 4px;

@@ -20,6 +20,11 @@ export interface ArticleListInterface {
   articles: ArticleItemInterface[];
 }
 
+export interface ArticleListParams {
+  sources: string;
+  search: string;
+}
+
 export type UseGetArticleListResult = NormalizerResponseInterface<
   ArticleListInterface["articles"]
 >;

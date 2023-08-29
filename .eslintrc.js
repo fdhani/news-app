@@ -27,6 +27,7 @@ module.exports = {
     "react/function-component-definition": [0],
     "react/no-unknown-property": ["error", { ignore: ["css"] }],
     "import/prefer-default-export": [0],
+    "no-restricted-exports": 0,
     "import/extensions": [
       "error",
       "ignorePackages",

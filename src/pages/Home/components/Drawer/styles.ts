@@ -49,3 +49,9 @@ export const styArticleHistoryContainer = css`
     }
   }
 `;
+
+export const styArticleHistoryHeader = css`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;

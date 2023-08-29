@@ -1,6 +1,4 @@
 export interface SearchProps {
-  onSearchChange: (value: string) => void;
-  searchValue: string;
   onHistoryClick: () => void;
 }
 

@@ -1,6 +1,6 @@
 import useLocalStorage from "@/repository/useLocalStorage";
-import { KEY } from "@/pages/Home/models/repository/visited-article-history/constants";
-import { ArticleCardInterface } from "../../models/components/article-card";
+import { KEY } from "@/models/repository/visited-article-history/constants";
+import { ArticleCardInterface } from "@/pages/Home/models/components/article-card";
 
 const useVisitedArticleHistory = () => {
   const { setItem, getItem } = useLocalStorage<ArticleCardInterface[]>(KEY);
