@@ -5,6 +5,7 @@ An App to showcase the usage of the following tech stack:
 - React Router DOM 6
 - Emotion 11
 - Local Storage
+
 And and an attempt to implement Clean Code Architecture (Far from perfect, but in progres) on a front end app.
 
 # How to Run for Local Development
