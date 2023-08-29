@@ -15,7 +15,7 @@ And and an attempt to implement Clean Code Architecture (Far from perfect, but i
 
 # Features
 
-### Main Page
+## Main Page
 <img width="1260" alt="Screenshot 2023-08-29 at 20 11 46" src="https://github.com/fdhani/news-app/assets/39753107/13b87817-3273-4f8f-ad62-87d56b4f8b34">
 
 ## Filtering by Source
