@@ -19,7 +19,7 @@ import { useToaster } from "@/context/toaster";
 
 const ArticleCard = (props: ArticleCardInterface) => {
   const { title, description, imgUrl, source, columnSpan } = props;
-  const articleTitle = useGetArticleTitle(title);
+  const { articleTitle } = useGetArticleTitle(title);
   const [titleState, setTitleState] = useState(articleTitle);
   const [showPopup, setShowPopup] = useState(false);
   const [newTitleValue, setNewTitleValue] = useState(titleState);

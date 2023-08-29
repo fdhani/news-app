@@ -30,13 +30,7 @@ const useGetArticleTitle = (title?: string) => {
     return title;
   }, [title, getTitle]);
 
-  const getArticleTitle = (_title: string) => {
-    const newTitle = getTitle(_title);
-
-    return newTitle;
-  };
-
-  return { articleTitle, getArticleTitle };
+  return articleTitle;
 };
 
 export default useGetArticleTitle;

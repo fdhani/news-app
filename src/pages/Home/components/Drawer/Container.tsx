@@ -8,6 +8,7 @@ import {
 } from "./styles";
 import { useOnClickOutside } from "@/utils/useClickOutside";
 import useClearArticleHistory from "../../usecases/use-clear-article-history";
+import useGetArticleTitle from "../../usecases/use-get-article-title";
 
 const DrawerContent = (props: DrawerPropsInterface) => {
   const { display, onClose } = props;
@@ -17,6 +18,8 @@ const DrawerContent = (props: DrawerPropsInterface) => {
   useOnClickOutside(drawerRef, () => {
     onClose();
   });
+
+  const { getArticleTitle } = useGetArticleTitle();
 
   const handleClearArticleHistoryClick = () => {
     clearArticleHistory();
@@ -50,7 +53,7 @@ const DrawerContent = (props: DrawerPropsInterface) => {
             <div className="item">
               <h3>
                 <a href={url} target="_blank" rel="noreferrer">
-                  {title}
+                  {getArticleTitle(title)}
                 </a>
               </h3>
               <p>- {source}</p>

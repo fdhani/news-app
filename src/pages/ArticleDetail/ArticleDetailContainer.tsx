@@ -1,10 +1,12 @@
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { styArticleDetailContainer, styleArticleDetailHeader } from "./styles";
+import useGetArticleTitle from "./usecases/use-get-article-title";
 
 function ArticleDetailContainer() {
   const navigate = useNavigate();
   const { state } = useLocation();
+  const title = useGetArticleTitle(state?.title);
 
   useEffect(() => {
     /**
@@ -37,7 +39,7 @@ function ArticleDetailContainer() {
           <span>Go Home</span>
         </div>
       </div>
-      <h1>{state?.title}</h1>
+      <h1>{title}</h1>
       <p>{state?.content}</p>
     </div>
   );
