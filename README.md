@@ -22,8 +22,8 @@ And and an attempt to implement Clean Code Architecture (Far from perfect, but i
 <img width="1235" alt="Screenshot 2023-08-29 at 20 22 14" src="https://github.com/fdhani/news-app/assets/39753107/41463cf3-a1c2-4f1c-ac1a-fb3c1ccd871e">
 
 # Visited Articles
-<img width="1266" alt="Screenshot 202<img width="64" alt="Screenshot 2023-08-29 at 20 25 05" src="https://github.com/fdhani/news-app/assets/39753107/708dd1a5-d052-40be-851e-bfa5400289c8">
-3-08-29 at 20 22 30" src="https://github.com/fdhani/news-app/assets/39753107/9b1d4e77-8f05-46dc-9331-e1294fe672e9">
+<img width="1266" alt="Screenshot 2023-08-29 at 20 22 30" src="https://github.com/fdhani/news-app/assets/39753107/9b1d4e77-8f05-46dc-9331-e1294fe672e9">
+<img width="64" alt="Screenshot 2023-08-29 at 20 25 05" src="https://github.com/fdhani/news-app/assets/39753107/708dd1a5-d052-40be-851e-bfa5400289c8">
 
 # Searching
 ![Uploading Screenshot 2023-08-29 at 20.23.08.png…]()
