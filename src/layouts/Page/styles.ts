@@ -16,6 +16,7 @@ export const styToaster = css`
   min-height: 50px;
   display: flex;
   border-radius: 9px;
+  z-index: 5;
   align-items: center;
   top: -50%;
   transition: top 0.5s ease-in-out;

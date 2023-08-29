@@ -15,6 +15,8 @@ import useClickArticleCard from "../../usecases/use-click-article-card";
 import useEditArticleTitle from "../../usecases/use-edit-article-title";
 import useGetArticleTitle from "../../usecases/use-get-article-title";
 import toSlug from "@/utils/toSlug";
+import useValidateArticleTitle from "../../usecases/use-validate-article-title";
+import { useToaster } from "@/context/toaster";
 
 const ArticleCard = (props: ArticleCardInterface) => {
   const { title, description, imgUrl, source, columnSpan } = props;
@@ -22,11 +24,13 @@ const ArticleCard = (props: ArticleCardInterface) => {
   const [titleState, setTitleState] = useState(articleTitle);
   const [showPopup, setShowPopup] = useState(false);
   const [newTitleValue, setNewTitleValue] = useState(titleState);
+  const { showToaster } = useToaster();
 
   const articleUrl = `/${toSlug(title)}`;
 
   const clickArticleCard = useClickArticleCard();
   const editArticleTitle = useEditArticleTitle();
+  const validateArticleTitle = useValidateArticleTitle();
 
   const handleArticleCardClick = () => {
     clickArticleCard(props);
@@ -35,8 +39,14 @@ const ArticleCard = (props: ArticleCardInterface) => {
   const handleArticleEditSaveClick = () => {
     const newTitle = editArticleTitle(title, newTitleValue);
 
-    setShowPopup(false);
-    setTitleState(newTitle);
+    const { isValid, message } = validateArticleTitle(newTitle);
+
+    if (isValid) {
+      setTitleState(newTitle);
+      setShowPopup(false);
+    } else {
+      showToaster(message);
+    }
   };
 
   const handleArticleEditClick = () => {
