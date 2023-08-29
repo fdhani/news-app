@@ -10,7 +10,8 @@ And and an attempt to implement Clean Code Architecture (Far from perfect, but i
 # How to Run for Local Development
 1. Go to directory
 2. Run `echo "ESLINT_NO_DEV_ERRORS=true\nREACT_APP_API_KEY=YOUR_API_KEY" > .env` (subtitute `YOUR_API_KEY` with your API key from https://newsapi.org/)
-3. Run `npm run start` on terminal
+3. Run `npm install`
+4. Run `npm run start` on terminal
 
 
 # Features
