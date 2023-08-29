@@ -14,7 +14,6 @@ import {
 import useClickArticleCard from "../../usecases/use-click-article-card";
 import useEditArticleTitle from "../../usecases/use-edit-article-title";
 import useGetArticleTitle from "../../usecases/use-get-article-title";
-import toSlug from "@/utils/toSlug";
 import useValidateArticleTitle from "../../usecases/use-validate-article-title";
 import { useToaster } from "@/context/toaster";
 
@@ -25,8 +24,6 @@ const ArticleCard = (props: ArticleCardInterface) => {
   const [showPopup, setShowPopup] = useState(false);
   const [newTitleValue, setNewTitleValue] = useState(titleState);
   const { showToaster } = useToaster();
-
-  const articleUrl = `/${toSlug(title)}`;
 
   const clickArticleCard = useClickArticleCard();
   const editArticleTitle = useEditArticleTitle();
@@ -79,7 +76,11 @@ const ArticleCard = (props: ArticleCardInterface) => {
               position: "relative",
             }}
           >
-            <NavLink onClick={handleArticleCardClick} to={articleUrl}>
+            <NavLink
+              state={props}
+              onClick={handleArticleCardClick}
+              to="/article-detail"
+            >
               <span className="title-wrapper">{titleState}</span>
             </NavLink>
             <button type="button" onClick={handleArticleEditClick}>
@@ -90,9 +91,9 @@ const ArticleCard = (props: ArticleCardInterface) => {
           <div css={styArticleLink}>
             <p>- {source}</p>
             <NavLink
+              state={props}
               onClick={handleArticleCardClick}
-              to={articleUrl}
-              rel="noreferrer"
+              to="/article-detail"
             >
               Read More
             </NavLink>

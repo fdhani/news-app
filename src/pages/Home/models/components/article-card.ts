@@ -5,4 +5,5 @@ export interface ArticleCardInterface {
   url: string;
   source: string;
   columnSpan?: number;
+  content: string;
 }

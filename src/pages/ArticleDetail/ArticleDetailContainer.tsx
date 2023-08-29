@@ -1,21 +1,27 @@
-import { useNavigate, useParams } from "react-router-dom";
-import useGetArticleDetail from "./usecases/use-get-article-detail";
-import toTitle from "@/utils/toTitle";
+import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { styArticleDetailContainer, styleArticleDetailHeader } from "./styles";
 
 function ArticleDetailContainer() {
-  const params = useParams<{ title: string }>();
   const navigate = useNavigate();
-  const { data, loading } = useGetArticleDetail({
-    sources: "",
-    search: toTitle(params.title),
-  });
+  const { state } = useLocation();
+
+  useEffect(() => {
+    /**
+     * Because this page is dependent on the main page
+     * to send the article detail data through location.state,
+     * if it was accessed directly we should redirect the user back to the main page
+     */
+    if (!state) {
+      navigate("/", {
+        replace: true,
+      });
+    }
+  }, [state]);
 
   const handleBackClick = () => {
     navigate(-1);
   };
-
-  if (loading) return <div>...loading</div>;
 
   return (
     <div css={styArticleDetailContainer}>
@@ -31,8 +37,8 @@ function ArticleDetailContainer() {
           <span>Go Home</span>
         </div>
       </div>
-      <h1>{data?.title}</h1>
-      <p>{data?.content}</p>
+      <h1>{state?.title}</h1>
+      <p>{state?.content}</p>
     </div>
   );
 }

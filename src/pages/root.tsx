@@ -8,7 +8,8 @@ const Routes: RouteObject[] = [
     element: <Home />,
   },
   {
-    path: "/:title",
+    // path: "/:title",
+    path: "/article-detail",
     element: <ArticleDetail />,
   },
 ];

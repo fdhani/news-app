@@ -23,12 +23,13 @@ function HomeView() {
               />
             ))
           : data?.map((articleItem, idx) => {
-              const { description, title, urlToImage, url, source } =
+              const { description, title, urlToImage, url, source, content } =
                 articleItem;
               return (
                 <ArticleCard
                   columnSpan={idx === 0 || idx % 5 === 0 ? 2 : 1}
                   title={title}
+                  content={content}
                   source={source.name}
                   description={description}
                   imgUrl={urlToImage}
